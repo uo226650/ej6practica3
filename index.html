@@ -14,7 +14,8 @@
 
     <main>
         <div id="formulario">
-            <p>Tipo de registro:</p>
+            <fieldset>
+                <legend>Tipo de registro:</legend>
             <div id="radio">
                 
                 <input type="radio" id="ingreso" name="tipoRegistro" onclick="calculadora.habilitar()" checked />
@@ -23,7 +24,7 @@
                 <label for="gasto">Gasto</label>
 
             </div>
-
+            </fieldset>
 
             <label for="descripción">Descripción:</label>
             <input type="text" id="descripción" placeholder="Descripcion" onfocus="this.placeholder = ''" />
@@ -56,11 +57,9 @@
             <p>Informe:</p>
             <div id="informe"></div>
             <p>Ingresos:</p>
-            <ul id="ingresos"></ul>
+            <div id="ingresos"></div>
             <p>Gastos:</p>
-            <ul id="gastos"></ul>
-
-
+            <div id="gastos"></div>
         </div>
     </main>
 
