@@ -177,8 +177,13 @@ class CalculadoraFinanciera {
         this.informe.añadirGasto(gasto);
 
         //Actualizar página
-        var listaGastos = document.getElementById("gastos").innerHTML;
-        document.getElementById("gastos").innerHTML = listaGastos.concat("<li>"+ descripcion + ": " + importe + "</li>");
+        if(this.informe.gastos.length == 1){//Si es el primer gasto, creo el elemento <ul>
+            var elemento = document.createElement("ul"); 
+            elemento.setAttribute("id", "listaGastos");
+            document.getElementById("gastos").append(elemento);
+        }
+        var listaGastos = document.getElementById("listaGastos").innerHTML;
+        document.getElementById("listaGastos").innerHTML = listaGastos.concat("<li>"+ descripcion + ": " + importe + "</li>");
 
         //Vacía los campos para nuevo ingreso de datos
         this.resetCampos();
@@ -230,8 +235,13 @@ class CalculadoraFinanciera {
         this.informe.añadirIngreso(ingreso);
 
         //Actualizar la lista HTML resumen de lo introducido por el usuario
-        var listaIngresos = document.getElementById("ingresos").innerHTML;
-        document.getElementById("ingresos").innerHTML = listaIngresos.concat("<li>"+ descripcion + ": " + importe + "</li>");
+        if(this.informe.ingresos.length == 1){//Si es el primer gasto, creo el elemento <ul>
+            var elemento = document.createElement("ul"); 
+            elemento.setAttribute("id", "listaIngresos");
+            document.getElementById("ingresos").append(elemento);
+        }
+        var listaIngresos = document.getElementById("listaIngresos").innerHTML;
+        document.getElementById("listaIngresos").innerHTML = listaIngresos.concat("<li>"+ descripcion + ": " + importe + "</li>");
 
         //Vacía los campos para nuevo ingreso de datos
         this.resetCampos();
