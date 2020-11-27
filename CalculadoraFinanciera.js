@@ -316,14 +316,14 @@ class CalculadoraFinanciera {
         var textoInforme = "<ul>"
         textoInforme += "<li>Ingreso neto: " + this.informe.ingresoNeto.toFixed(2); //Number method returning a string containing the specified(2) number of decimals
         textoInforme +="</li><li>Saldo: " + this.informe.saldo.toFixed(2);
-        textoInforme +="</li><li>Iva generado: " + this.informe.ivaGenerado.toFixed(2);
-        textoInforme +="</li><li>Iva deducible: " + this.informe.ivaDeducible.toFixed(2);
+        textoInforme +="</li><li>IVA generado: " + this.informe.ivaGenerado.toFixed(2);
+        textoInforme +="</li><li>IVA deducible: " + this.informe.ivaDeducible.toFixed(2);
         textoInforme +="</li><li>Horas trabajadas: " + this.informe.horasTotales + "</ul>";
         textoInforme += "<p>Detalle: </p>";
         textoInforme += "<ul>Ingresos: ";
         this.informe.ingresos.forEach(ingreso => {
             
-            textoInforme +="</li><li>Ingreso: " + ingreso.descripcion;
+            textoInforme +="</li><li>" + ingreso.descripcion;
             textoInforme +="<ul>";
             textoInforme +="</li><li>Importe Total: " + ingreso.importe;
             textoInforme +="</li><li>Importe Base: " + ingreso.importeBase.toFixed(2);
@@ -335,7 +335,7 @@ class CalculadoraFinanciera {
         textoInforme += "<ul>Gastos: ";
         this.informe.gastos.forEach(gasto => {
             
-            textoInforme +="</li><li>Gasto: " + gasto.descripcion;
+            textoInforme +="</li><li>" + gasto.descripcion;
             textoInforme +="<ul>";
             textoInforme +="</li><li>Importe Total: " + gasto.importe;
             textoInforme +="</li><li>IVA: " + gasto.ivaDeducible.toFixed(2) + " (" + gasto.ivaPorcentaje + "%)";
