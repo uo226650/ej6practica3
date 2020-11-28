@@ -16,14 +16,14 @@
         <div id="formulario">
             <fieldset>
                 <legend>Tipo de registro:</legend>
-            <div id="radio">
-                
-                <input type="radio" id="ingreso" name="tipoRegistro" onclick="calculadora.habilitar()" onkeypress="calculadora.habilitar()"  checked />
-                <label for="ingreso">Ingreso</label>
-                <input type="radio" id="gasto" name="tipoRegistro" onclick="calculadora.deshabilitar()" onkeypress="calculadora.deshabilitar()"/>
-                <label for="gasto">Gasto</label>
-
-            </div>
+                <div id="radio">
+                    <input type="radio" id="ingreso" name="tipoRegistro" onclick="calculadora.habilitar()"
+                        onkeypress="calculadora.habilitar()" checked />
+                    <label for="ingreso">Ingreso</label>
+                    <input type="radio" id="gasto" name="tipoRegistro" onclick="calculadora.deshabilitar()"
+                        onkeypress="calculadora.deshabilitar()" />
+                    <label for="gasto">Gasto</label>
+                </div>
             </fieldset>
 
             <label for="descripción">Descripción:</label>
@@ -50,7 +50,6 @@
             <p id="errorañadir" class="error"></p>
             <button onclick="calculadora.añadir()">Añadir</button>
             <button onclick="calculadora.generarInforme()">Generar Informe</button>
-
         </div>
 
         <div id="listas">
@@ -60,6 +59,7 @@
             <div id="ingresos"></div>
             <p>Gastos:</p>
             <div id="gastos"></div>
+            <button onclick="calculadora.resetInforme()">Vaciar Informe</button>
         </div>
     </main>
 

@@ -1,7 +1,5 @@
 const percentage = 0.01; //const keyword (ES6)
 //TODO Posibilidad de eliminar gastos e ingresos
-//TODO Prevenir campos vacíos
-//TODO Terminar onblur comportamiento raro. Actualizar Añadir Gasto con respecto a este
 //TODO Limpiar Informe para empezar de nuevo (Evitar recargar web)
 //TODO gastos validar campos
 /**
@@ -14,7 +12,7 @@ class Ingreso {
         this.descripcion = descripcion;
         this.importe = importe;
         this.horas = horas;
-        this.ivaPorcentaje = ivaPorcentaje; //Número entero de 0-100 //TODO exception handling Try/catch(ES3)
+        this.ivaPorcentaje = ivaPorcentaje; //Número entero de 0-100
         this.irpfPorcentaje = irpfPorcentaje; //Número entero de 0-100
         this.importeBase = this.calcularImporteBase();
         this.iva = this.calcularPorcentaje(ivaPorcentaje);
@@ -141,8 +139,14 @@ class CalculadoraFinanciera {
         this.informe = informe;
     }
 
+    resetInforme(){
+        this.informe = new Informe();
+        document.getElementById("informe").innerHTML="";
+        document.getElementById("ingresos").innerHTML="";
+        document.getElementById("gastos").innerHTML="";
+    }
+
     añadir(){
-        debugger;
         var errores = document.getElementsByClassName("error") //Resetea los mensajes de error
         for (var error of errores){
             error.innerHTML = "";
@@ -162,15 +166,17 @@ class CalculadoraFinanciera {
      */
     añadirGasto() {
 
-        // Recupera los valores introducidos por el usuario
         let descripcion = document.getElementById("descripción").value;
-        // Y los valida
+       
         let importe = this.validaNumero("importe");
-        if (importe == null)
-            return;
         let ivaPorcentaje = this.validaPorcentaje("IVA");
-        if (ivaPorcentaje == null)
-            return;
+       
+        if (importe == null || ivaPorcentaje == null){
+            document.getElementById("errorañadir").innerHTML = "Corrige los campos con errores"
+            return; //No añadas el ingreso
+        }
+
+        document.getElementById("errorañadir").innerHTML = "";
 
         //Crea un nuevo objeto con los valores introducidos por el usuario
         var gasto = new Gasto(descripcion, importe, ivaPorcentaje);
@@ -200,26 +206,12 @@ class CalculadoraFinanciera {
         
         //Recupera los valores introducidos por el usuario
         let descripcion = document.getElementById("descripción").value;
-
-        
+       
         let importe = this.validaNumero("importe");
-        //if (importe == null)
-            //return;
         let ivaPorcentaje = this.validaPorcentaje("IVA");
-        //if (ivaPorcentaje == null)
-            //return;
         let irpfPorcentaje = this.validaPorcentaje("IRPF");
-        //if (irpfPorcentaje == null)
-            //return;
         let horas = this.validaNumero("horas");
-        //if (horas == null)
-            //return;
-        /*
-        let importe = document.getElementById("importe").value;
-        let ivaPorcentaje = document.getElementById("IVA").value;
-        let irpfPorcentaje = document.getElementById("IRPF").value;
-        let horas = document.getElementById("horas").value*/
-        debugger;
+
         
         if (importe == null || ivaPorcentaje == null ||
             irpfPorcentaje == null || horas == null){
