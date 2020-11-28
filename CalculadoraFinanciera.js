@@ -115,6 +115,8 @@ class Informe {
     añadirGasto(gasto) {
         this.gastos.push(gasto);
         this.actualizarIvaDeducible(gasto);
+        //Devuelve el foco al campo 'descripción' para facilitar la introducción de un nuevo dato
+        document.getElementById("descripción").focus();
     }
 
     añadirIngreso(ingreso) {
@@ -122,6 +124,7 @@ class Informe {
         this.actualizarIvaGenerado(ingreso);
         this.actualizarHorasTotales(ingreso);
         this.actualizarIrpfRetenido(ingreso);
+        document.getElementById("descripción").focus();
     }
 
 }
