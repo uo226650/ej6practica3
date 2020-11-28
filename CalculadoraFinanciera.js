@@ -1,7 +1,7 @@
 const percentage = 0.01; //const keyword (ES6)
-//TODO Posibilidad de eliminar gastos e ingresos
-//TODO Limpiar Informe para empezar de nuevo (Evitar recargar web)
-//TODO gastos validar campos
+//TODO para una revisión futura de la aplicación:
+    // Posibilidad de eliminar gastos e ingresos individualmente
+
 /**
  * Representa una factura generada por el autónomo.
  * El porcentaje de IVA e IRPF es introducido por el usuario
@@ -24,7 +24,6 @@ class Ingreso {
     }
 
     calcularImporteBase() {
-        debugger;
         return (this.importe / (1 + this.ivaPorcentaje * percentage - this.irpfPorcentaje * percentage));
     }
 }
@@ -333,7 +332,6 @@ class CalculadoraFinanciera {
             textoInforme +="</li><li>IVA: " + gasto.ivaDeducible.toFixed(2) + " (" + gasto.ivaPorcentaje + "%)";
             textoInforme += "</ul>"; //Cierra detalle gasto
         });
-        //document.getElementById("listas").innerHTML = "";
         document.getElementById("informe").innerHTML = textoInforme;
     }
 
