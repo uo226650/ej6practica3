@@ -153,16 +153,23 @@ class CalculadoraFinanciera {
     }
 
     añadir(){
-        var errores = document.getElementsByClassName("error") //Resetea los mensajes de error
-        for (var error of errores){
-            error.innerHTML = "";
-        }
+        this.borraErrores();
         if (document.getElementById("gasto").checked)
             this.añadirGasto();   
         else if (document.getElementById("ingreso").checked)
             this.añadirIngreso();
         else    
             alert("Selecciona un tipo de registro para añadir");//No se alcanza porque he definido un default
+    }
+
+    /**
+     * Resetea los mensajes de error a su estado inicial
+     */
+    borraErrores(){
+        var errores = document.getElementsByClassName("error")
+        for (var error of errores){
+            error.innerHTML = "";
+        }
     }
 
     /**
@@ -300,6 +307,7 @@ class CalculadoraFinanciera {
         document.getElementById("horas").disabled = true;
         document.getElementById("IRPF").placeholder = "No aplica";
         document.getElementById("horas").placeholder = "No aplica";
+        this.borraErrores();
     }
 
     habilitar(){
@@ -307,6 +315,7 @@ class CalculadoraFinanciera {
         document.getElementById("horas").disabled = false;
         document.getElementById("IRPF").placeholder = "ej. 15";
         document.getElementById("horas").placeholder = "ej. 8";
+        this.borraErrores();
     }
 
     /**
