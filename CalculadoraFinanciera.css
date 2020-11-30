@@ -1,6 +1,5 @@
 #formulario, #listas{
 	width: 18em;
-	height: 100%;
 	float: left;
 	padding:0.8em;
 	border-radius:0.8em;
@@ -23,7 +22,9 @@ label , p{
 	font-size: 0.8em;
 	font-weight: normal;
 }
-
+.borrar{
+	float:right;
+}
 .borrar:hover{
 	background-color: rgba(247, 27, 27, 0.753);
 }
@@ -69,7 +70,7 @@ h1, h2 {
 	background-color: rgb(248, 247, 247);
 	color: black;
 }
-
+/*
 @media screen and (max-width: 630px) {
 	
 	body{
@@ -81,4 +82,4 @@ h1, h2 {
 		font-size: 80%;
 	}
 
-}
+}*/
