@@ -30,7 +30,7 @@
             <label for="descripción">Descripción:</label>
             <input title="Concepto o nombre identificador de la factura" type="text" id="descripción" placeholder="Descripcion" onfocus="this.placeholder = ''" />
             <label for="importe">Importe:</label>
-            <input title="Importe total incluídos impuestos (el importe base se calculará al generar el informe)" type="text" id="importe" placeholder="Importe Total" onfocus="this.placeholder = ''"
+            <input title="Importe total incluídos impuestos (el importe base se calculará al generar el informe)" type="number" id="importe" placeholder="Importe Total" onfocus="this.placeholder = ''"
                 onblur="calculadora.validaNumero('importe')" />
             <p class="error" id="errorimporte"></p>
             <label for="IVA">IVA (%):</label>
