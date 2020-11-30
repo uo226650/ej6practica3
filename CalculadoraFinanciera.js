@@ -178,7 +178,11 @@ class CalculadoraFinanciera {
             return; //No añadas el ingreso
         }
 
+        //Devolver la interfaz al estado inicial
         document.getElementById("errorañadir").innerHTML = "";
+        this.colocarPlaceholders();
+        document.getElementById("ingreso").checked = true;
+        this.habilitar();
 
         //Crea un nuevo objeto con los valores introducidos por el usuario
         var gasto = new Gasto(descripcion, importe, ivaPorcentaje);
@@ -195,7 +199,6 @@ class CalculadoraFinanciera {
 
         //Vacía los campos para nuevo ingreso de datos
         this.resetCampos();
-        this.deshabilitar();
     }
 
 
@@ -221,8 +224,9 @@ class CalculadoraFinanciera {
             return; //No añadas el ingreso
         }
 
-        document.getElementById("errorañadir").innerHTML = "";    
-
+        //Devolver la interfaz al estado inicial
+        document.getElementById("errorañadir").innerHTML = "";
+        this.colocarPlaceholders();
 
         //Crea un nuevo objeto con los valores introducidos por el usuario
         var ingreso = new Ingreso(descripcion, importe, ivaPorcentaje, irpfPorcentaje, horas);
@@ -370,6 +374,14 @@ class CalculadoraFinanciera {
         }
         //alert(mensaje);
         document.getElementById("error"+campo).innerHTML =mensaje;
+    }
+
+    colocarPlaceholders(){
+        document.getElementById("descripción").placeholder = "Descripción";
+        document.getElementById("importe").placeholder = "Importe Total";
+        document.getElementById("IVA").placeholder = "ej. 21";
+        document.getElementById("IRPF").placeholder = "ej. 15";
+        document.getElementById("horas").placeholder = "ej. 8";
     }
 
 }
