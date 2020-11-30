@@ -72,15 +72,19 @@ class Informe {
     calcularIngresoNeto() {
 
         let total = 0; //let keyword (ES6)
+        let totalIngresos=0;
+        let totalGastos=0;
         let totalIVA = 0;
         for (let ingreso of this.ingresos) { //Testing for-of ECMAScript statement
             total += ingreso.importe;
+            totalIngresos += ingreso.importe;
         }
-
+        this.totalIngresos = totalIngresos;
         this.gastos.forEach(gasto => { //Testing forEach Array Method (ECMAScript5)
-            total -= gasto.importe;             //Testing Arrow Function (ECMAScript6)
+            total -= gasto.importe;
+            totalGastos += gasto.importe;   //Testing Arrow Function (ECMAScript6)
         });
-
+        this.totalGastos = totalGastos;
         //Calcula el IVA acumulado
         totalIVA = this.ivaGenerado - this.ivaDeducible;
         
@@ -318,7 +322,7 @@ class CalculadoraFinanciera {
         textoInforme +="</li><li>IVA deducible: " + this.informe.ivaDeducible.toFixed(2) + "€";
         textoInforme +="</li><li>Horas trabajadas: " + this.informe.horasTotales + "</ul>";
         textoInforme += "<h4>Desglose: </h4>";
-        textoInforme += "<ul>Ingresos: ";
+        textoInforme += "<ul>Ingresos: " + this.informe.totalIngresos + "€";
         this.informe.ingresos.forEach(ingreso => {
             
             textoInforme +="</li><li>" + ingreso.descripcion;
@@ -330,7 +334,7 @@ class CalculadoraFinanciera {
             textoInforme += "</ul>"; //Cierra detalle ingreso
         });
         textoInforme += "</ul>" //Cerrar lista ingresos
-        textoInforme += "<ul>Gastos: ";
+        textoInforme += "<ul>Gastos: " + this.informe.totalGastos + "€";
         this.informe.gastos.forEach(gasto => {
             
             textoInforme +="</li><li>" + gasto.descripcion;
