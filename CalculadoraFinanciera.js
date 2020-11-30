@@ -195,7 +195,7 @@ class CalculadoraFinanciera {
             document.getElementById("gastos").append(elemento);
         }
         var listaGastos = document.getElementById("listaGastos").innerHTML;
-        document.getElementById("listaGastos").innerHTML = listaGastos.concat("<li>"+ descripcion + ": " + importe + "</li>");
+        document.getElementById("listaGastos").innerHTML = listaGastos.concat("<li>"+ descripcion + ": " + importe + "€" + "</li>");
 
         //Vacía los campos para nuevo ingreso de datos
         this.resetCampos();
@@ -239,7 +239,7 @@ class CalculadoraFinanciera {
             document.getElementById("ingresos").append(elemento);
         }
         var listaIngresos = document.getElementById("listaIngresos").innerHTML;
-        document.getElementById("listaIngresos").innerHTML = listaIngresos.concat("<li>"+ descripcion + ": " + importe + "</li>");
+        document.getElementById("listaIngresos").innerHTML = listaIngresos.concat("<li>"+ descripcion + ": " + importe + "€" + "</li>");
 
         //Vacía los campos para nuevo ingreso de datos
         this.resetCampos();
@@ -312,21 +312,21 @@ class CalculadoraFinanciera {
         var ingresoNeto = this.informe.calcularIngresoNeto();
         
         var textoInforme = "<ul>"
-        textoInforme += "<li>Ingreso neto: " + this.informe.ingresoNeto.toFixed(2); //Number method returning a string containing the specified(2) number of decimals
-        textoInforme +="</li><li>Saldo: " + this.informe.saldo.toFixed(2);
-        textoInforme +="</li><li>IVA generado: " + this.informe.ivaGenerado.toFixed(2);
-        textoInforme +="</li><li>IVA deducible: " + this.informe.ivaDeducible.toFixed(2);
+        textoInforme += "<li>Ingreso neto: " + this.informe.ingresoNeto.toFixed(2) + "€"; //Number method returning a string containing the specified(2) number of decimals
+        textoInforme +="</li><li>Saldo: " + this.informe.saldo.toFixed(2) + "€";
+        textoInforme +="</li><li>IVA generado: " + this.informe.ivaGenerado.toFixed(2) + "€";
+        textoInforme +="</li><li>IVA deducible: " + this.informe.ivaDeducible.toFixed(2) + "€";
         textoInforme +="</li><li>Horas trabajadas: " + this.informe.horasTotales + "</ul>";
-        textoInforme += "<p>Detalle: </p>";
+        textoInforme += "<h4>Desglose: </h4>";
         textoInforme += "<ul>Ingresos: ";
         this.informe.ingresos.forEach(ingreso => {
             
             textoInforme +="</li><li>" + ingreso.descripcion;
             textoInforme +="<ul>";
-            textoInforme +="</li><li>Importe Total: " + ingreso.importe;
-            textoInforme +="</li><li>Importe Base: " + ingreso.importeBase.toFixed(2);
-            textoInforme +="</li><li>IVA: " + ingreso.iva.toFixed(2) + " (" + ingreso.ivaPorcentaje + "%)";
-            textoInforme +="</li><li>IRPF: " + ingreso.irpf.toFixed(2) + " (" + ingreso.irpfPorcentaje + "%)";
+            textoInforme +="</li><li>Importe Total: " + ingreso.importe + "€";
+            textoInforme +="</li><li>Importe Base: " + ingreso.importeBase.toFixed(2) + "€";
+            textoInforme +="</li><li>IVA: " + ingreso.iva.toFixed(2) + "€" + " (" + ingreso.ivaPorcentaje + "%)";
+            textoInforme +="</li><li>IRPF: " + ingreso.irpf.toFixed(2) + "€" + " (" + ingreso.irpfPorcentaje + "%)";
             textoInforme += "</ul>"; //Cierra detalle ingreso
         });
         textoInforme += "</ul>" //Cerrar lista ingresos
@@ -335,8 +335,8 @@ class CalculadoraFinanciera {
             
             textoInforme +="</li><li>" + gasto.descripcion;
             textoInforme +="<ul>";
-            textoInforme +="</li><li>Importe Total: " + gasto.importe;
-            textoInforme +="</li><li>IVA: " + gasto.ivaDeducible.toFixed(2) + " (" + gasto.ivaPorcentaje + "%)";
+            textoInforme +="</li><li>Importe Total: " + gasto.importe + "€";
+            textoInforme +="</li><li>IVA: " + gasto.ivaDeducible.toFixed(2) + "€" + " (" + gasto.ivaPorcentaje + "%)";
             textoInforme += "</ul>"; //Cierra detalle gasto
         });
         document.getElementById("informe").innerHTML = textoInforme;
