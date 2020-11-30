@@ -34,15 +34,15 @@
                 onblur="calculadora.validaNumero('importe')" />
             <p class="error" id="errorimporte"></p>
             <label for="IVA">IVA (%):</label>
-            <input title="Solo los dígitos del porcentaje de IVA aplicado (sin el símbolo %)" type="text" id="IVA" placeholder="ej. 21" onfocus="this.placeholder = ''"
+            <input title="Solo los dígitos del porcentaje de IVA aplicado (sin el símbolo %)" type="number" id="IVA" placeholder="ej. 21" onfocus="this.placeholder = ''"
                 onblur="calculadora.validaPorcentaje('IVA')" />
             <p class="error" id="errorIVA"></p>
             <label for="IRPF">IRPF (%):</label>
-            <input title="Solo los dígitos del porcentaje de IRPF aplicado (sin el símbolo %)" type="text" id="IRPF" placeholder="ej. 15" onfocus="this.placeholder = ''"
+            <input title="Solo los dígitos del porcentaje de IRPF aplicado (sin el símbolo %)" type="number" id="IRPF" placeholder="ej. 15" onfocus="this.placeholder = ''"
                 onblur="calculadora.validaPorcentaje('IRPF')" />
             <p class="error" id="errorIRPF"></p>
             <label for="horas">Horas trabajadas:</label>
-            <input title="Número de horas de trabajo" type="text" id="horas" placeholder="ej. 8" onfocus="this.placeholder = ''"
+            <input title="Número de horas de trabajo" type="number" id="horas" placeholder="ej. 8" onfocus="this.placeholder = ''"
                 onblur="calculadora.validaNumero('horas')" />
             <p class="error" id="errorhoras"></p>
             <p id="errorañadir" class="error"></p>
