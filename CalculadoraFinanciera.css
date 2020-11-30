@@ -27,6 +27,10 @@ label , p{
 	font-weight: normal;
 }
 
+.borrar:hover{
+	background-color: rgba(247, 27, 27, 0.753);
+}
+
 #radio{
 	display:inline-flex;
 	margin-bottom: 1.3em;
@@ -53,6 +57,7 @@ button {
 
 button:hover{
 	cursor:pointer;
+	background-color: green;
 }
 
 #formulario label {
