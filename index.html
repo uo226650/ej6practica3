@@ -45,15 +45,17 @@
             <input title="Número de horas de trabajo" type="text" id="horas" placeholder="ej. 8" onfocus="this.placeholder = ''"
                 onblur="calculadora.validaNumero('horas')" />
             <p class="error" id="errorhoras"></p>
-            <button class="borrar" onclick="calculadora.resetCampos()">Borrar campos</button>
-        </div>
-        <div id="buttons">
             <p id="errorañadir" class="error"></p>
             <button onclick="calculadora.añadir()">Añadir</button>
-            <button onclick="calculadora.generarInforme()">Generar Informe</button>
+            <button class="borrar" onclick="calculadora.resetCampos()">Borrar campos</button>
         </div>
+        <!--div id="buttons">
+            
+            
+        </div-->
 
         <div id="listas">
+            <button onclick="calculadora.generarInforme()">Generar Informe</button>
             <p>Informe:</p>
             <div id="informe"></div>
             <p>Ingresos:</p>

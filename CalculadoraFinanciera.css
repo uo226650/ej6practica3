@@ -1,4 +1,4 @@
-#formulario, #buttons, #listas{
+#formulario, #listas{
 	width: 18em;
 	height: 100%;
 	float: left;
@@ -40,6 +40,10 @@ label , p{
 	background-color:#f6f6f6;
 	margin:0.6em 0;
 	display:inline-block;
+}
+
+fieldset{
+	border: none;
 }
 
 button {
