@@ -28,24 +28,24 @@
             </fieldset>
 
             <label for="descripción">Descripción:</label>
-            <input type="text" id="descripción" placeholder="Descripcion" onfocus="this.placeholder = ''" />
+            <input title="Concepto o nombre identificador de la factura" type="text" id="descripción" placeholder="Descripcion" onfocus="this.placeholder = ''" />
             <label for="importe">Importe:</label>
-            <input type="text" id="importe" placeholder="Importe Total" onfocus="this.placeholder = ''"
+            <input title="Importe total incluídos impuestos (el importe base se calculará al generar el informe)" type="text" id="importe" placeholder="Importe Total" onfocus="this.placeholder = ''"
                 onblur="calculadora.validaNumero('importe')" />
             <p class="error" id="errorimporte"></p>
             <label for="IVA">IVA (%):</label>
-            <input type="text" id="IVA" placeholder="ej. 21" onfocus="this.placeholder = ''"
+            <input title="Solo los dígitos del porcentaje de IVA aplicado (sin el símbolo %)" type="text" id="IVA" placeholder="ej. 21" onfocus="this.placeholder = ''"
                 onblur="calculadora.validaPorcentaje('IVA')" />
             <p class="error" id="errorIVA"></p>
             <label for="IRPF">IRPF (%):</label>
-            <input type="text" id="IRPF" placeholder="ej. 15" onfocus="this.placeholder = ''"
+            <input title="Solo los dígitos del porcentaje de IRPF aplicado (sin el símbolo %)" type="text" id="IRPF" placeholder="ej. 15" onfocus="this.placeholder = ''"
                 onblur="calculadora.validaPorcentaje('IRPF')" />
             <p class="error" id="errorIRPF"></p>
             <label for="horas">Horas trabajadas:</label>
-            <input type="text" id="horas" placeholder="ej. 8" onfocus="this.placeholder = ''"
+            <input title="Número de horas de trabajo" type="text" id="horas" placeholder="ej. 8" onfocus="this.placeholder = ''"
                 onblur="calculadora.validaNumero('horas')" />
             <p class="error" id="errorhoras"></p>
-            <button id="borrar" onclick="calculadora.resetCampos()">Borrar campos</button>
+            <button class="borrar" onclick="calculadora.resetCampos()">Borrar campos</button>
         </div>
         <div id="buttons">
             <p id="errorañadir" class="error"></p>
@@ -60,7 +60,7 @@
             <div id="ingresos"></div>
             <p>Gastos:</p>
             <div id="gastos"></div>
-            <button onclick="calculadora.resetInforme()">Vaciar Informe</button>
+            <button class="borrar" onclick="calculadora.resetInforme()">Vaciar Informe</button>
         </div>
     </main>
 

@@ -158,7 +158,7 @@ class CalculadoraFinanciera {
         else if (document.getElementById("ingreso").checked)
             this.añadirIngreso();
         else    
-            alert("Selecciona un tipo de registro para añadir");
+            alert("Selecciona un tipo de registro para añadir");//No se alcanza porque he definido un default
     }
 
     /**
